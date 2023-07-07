@@ -1,8 +1,10 @@
-package br.edu.ifma.pizzaria;
+package br.edu.ifma.pizzaria.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import br.edu.ifma.pizzaria.R;
 
 public class MainActivity extends AppCompatActivity {
 
