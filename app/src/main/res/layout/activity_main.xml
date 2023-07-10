@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f8482c"
-    tools:context=".Activities.MainActivity">
+    tools:context=".MainActivity">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -40,7 +40,7 @@
                 android:layout_marginBottom="128dp"
                 android:text="-não há novos pedidos em aberto-"
                 android:textAlignment="center"
-                android:textColor="@color/material_dynamic_neutral50"
+                android:textColor="@color/cinza"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
