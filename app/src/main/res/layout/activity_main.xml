@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f8482c"
-    tools:context=".MainActivity">
+    tools:context=".Activitys.MainActivity">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -55,7 +55,7 @@
         </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
+            android:id="@+id/btnMais"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
@@ -68,7 +68,7 @@
     </FrameLayout>
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/image"
         android:layout_width="256dp"
         android:layout_height="224dp"
         app:layout_constraintBottom_toTopOf="@+id/frameLayout"
