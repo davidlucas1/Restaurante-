@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activitys.Tela2">
+    tools:context=".Activities.Tela2">
 
     <ScrollView
         android:id="@+id/scrollView2"

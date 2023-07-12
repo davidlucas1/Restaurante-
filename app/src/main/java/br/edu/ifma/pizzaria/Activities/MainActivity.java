@@ -1,4 +1,4 @@
-package br.edu.ifma.pizzaria.Activitys;
+package br.edu.ifma.pizzaria.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
