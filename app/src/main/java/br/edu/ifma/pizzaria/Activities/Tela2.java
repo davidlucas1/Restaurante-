@@ -46,10 +46,10 @@ public class Tela2 extends AppCompatActivity {
         MisturaAdapter adapter = new MisturaAdapter(misturas);
         recyclerViewMisturaList.setAdapter(adapter);
 
-        Mistura mistura = new Mistura("pizzahy", 35.50, R.drawable.img);
+        Mistura mistura = new Mistura("Macaxeira Frita", 7.00, R.drawable.macaxeira_frita);
         misturas.add(mistura);
 
-        mistura = new Mistura("pizza", 35.50, R.drawable.img);
+        mistura = new Mistura("Vatapá", 9.00, R.drawable.vatapa);
         misturas.add(mistura);
 
         mistura = new Mistura("pizza", 35.50, R.drawable.img);
@@ -62,7 +62,7 @@ public class Tela2 extends AppCompatActivity {
         BebidasAdapter adapter = new BebidasAdapter(bebidas);
         recyclerViewBebidasList.setAdapter(adapter);
 
-        Bebidas drink = new Bebidas("pizzahy", 35.50, R.drawable.img);
+        Bebidas drink = new Bebidas("Cachaça Dona Banana", 40.00, R.drawable.dona_banana);
         bebidas.add(drink);
 
         drink = new Bebidas("pizza", 35.50, R.drawable.img);
@@ -82,10 +82,10 @@ public class Tela2 extends AppCompatActivity {
         PratoPrincipal prato = new PratoPrincipal("Carne de Sol", 50.00, R.drawable.carne_de_sol);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("Macaxeira Frita", 5.00, R.drawable.macaxeira_frita);
+        prato = new PratoPrincipal("Moqueca", 30.00, R.drawable.moqueca);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("Cachaça Dona Banana", 40.00, R.drawable.dona_banana);
+        prato = new PratoPrincipal("Baião", 10.00, R.drawable.baiao);
         pratosPrincipais.add(prato);
     }
 
