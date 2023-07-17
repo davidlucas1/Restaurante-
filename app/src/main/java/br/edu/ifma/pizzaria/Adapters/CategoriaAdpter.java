@@ -48,11 +48,11 @@ public class CategoriaAdpter extends RecyclerView.Adapter<CategoriaAdpter.ViewHo
                 break;
             }
             case 2:{
-                imageUrl  = "cat_3";
+                imageUrl  = "cat_4";
                 break;
             }
             case 3:{
-                imageUrl  = "cat_4";
+                imageUrl  = "cat_3";
                 break;
             }
             case 4:{

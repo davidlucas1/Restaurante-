@@ -79,13 +79,13 @@ public class Tela2 extends AppCompatActivity {
         PrincipalAdapter adapter = new PrincipalAdapter(pratosPrincipais);
         recyclerViewPpList.setAdapter(adapter);
 
-        PratoPrincipal prato = new PratoPrincipal("pizza", 35.50, R.drawable.img);
+        PratoPrincipal prato = new PratoPrincipal("Carne de Sol", 50.00, R.drawable.carne_de_sol);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("pizza", 35.50, R.drawable.img);
+        prato = new PratoPrincipal("Macaxeira Frita", 5.00, R.drawable.macaxeira_frita);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("pizza", 35.50, R.drawable.img);
+        prato = new PratoPrincipal("Cachaça Dona Banana", 40.00, R.drawable.dona_banana);
         pratosPrincipais.add(prato);
     }
 
@@ -96,8 +96,8 @@ public class Tela2 extends AppCompatActivity {
         ArrayList<Categoria> categoriasList = new ArrayList<>();
         categoriasList.add(new Categoria("Prato Principal", "cat_1"));
         categoriasList.add(new Categoria("Mistura", "cat_2"));
-        categoriasList.add(new Categoria("Bebidas", "cat_3"));
-        categoriasList.add(new Categoria("Sobremesas", "cat_4"));
+        categoriasList.add(new Categoria("Bebidas", "cat_4"));
+        categoriasList.add(new Categoria("Sobremesas", "cat_3"));
         categoriasList.add(new Categoria("Lanches", "cat_5"));
         adapterCat = new CategoriaAdpter(categoriasList);
         recyclerViewCatList.setAdapter(adapterCat);
