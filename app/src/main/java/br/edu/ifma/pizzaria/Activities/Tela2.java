@@ -52,7 +52,7 @@ public class Tela2 extends AppCompatActivity {
         mistura = new Mistura("Vatapá", 9.00, R.drawable.vatapa);
         misturas.add(mistura);
 
-        mistura = new Mistura("pizza", 35.50, R.drawable.img);
+        mistura = new Mistura("Carangueijo", 40.00, R.drawable.caranguejo);
         misturas.add(mistura);
     }
     private void setRecyclerViewBebidas() {
@@ -65,10 +65,10 @@ public class Tela2 extends AppCompatActivity {
         Bebidas drink = new Bebidas("Cachaça Dona Banana", 40.00, R.drawable.dona_banana);
         bebidas.add(drink);
 
-        drink = new Bebidas("pizza", 35.50, R.drawable.img);
+        drink = new Bebidas("Guaraná Jesus", 7.00, R.drawable.guarana_jesus);
         bebidas.add(drink);
 
-        drink = new Bebidas("pizza", 35.50, R.drawable.img);
+        drink = new Bebidas("Cajuina", 10.00, R.drawable.cajuina);
         bebidas.add(drink);
     }
 
