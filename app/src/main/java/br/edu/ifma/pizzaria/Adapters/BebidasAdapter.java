@@ -45,6 +45,7 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.DrinksVi
         holder.image.setImageResource(drink.getImage());
         holder.name.setText(drink.getName());
         holder.price.setText(String.valueOf(drink.getPrice()));
+        holder.description.setText(String.valueOf(drink.getDescription()));
 
     }
 
@@ -55,7 +56,7 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.DrinksVi
 
     public class DrinksViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, price;
+        TextView name, price, description;
         ImageView image;
 
         public DrinksViewHolder(@NonNull View itemView) {
@@ -66,6 +67,8 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.DrinksVi
                     .findViewById(R.id.price);
             image = itemView
                     .findViewById(R.id.image);
+            description = itemView
+                    .findViewById(R.id.description);
         }
     }
 

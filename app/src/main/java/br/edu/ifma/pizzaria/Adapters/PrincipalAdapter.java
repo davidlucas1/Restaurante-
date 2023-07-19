@@ -42,6 +42,7 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
         holder.image.setImageResource(prato.getImage());
         holder.name.setText(prato.getName());
         holder.price.setText(String.valueOf(prato.getPrice()));
+        holder.description.setText(String.valueOf(prato.getDescription()));
 
     }
 
@@ -52,7 +53,7 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
 
 
     public class PratoViewHolder extends RecyclerView.ViewHolder {
-        TextView name, price;
+        TextView name, price, description;
         ImageView image;
 
         public PratoViewHolder(@NonNull View itemView) {
@@ -63,6 +64,8 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
                     .findViewById(R.id.price);
             image = itemView
                     .findViewById(R.id.image);
+            description = itemView
+                    .findViewById(R.id.description);
         }
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp">
 
@@ -19,7 +20,7 @@
 
             <ImageView
                 android:id="@+id/image"
-                android:layout_width="125dp"
+                android:layout_width="175dp"
                 android:layout_height="125dp"
                 app:srcCompat="@drawable/img" />
         </com.google.android.material.card.MaterialCardView>
@@ -36,13 +37,23 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="bucho, tempero" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:gravity="end"
-            android:orientation="horizontal">
+            android:gravity="start">
 
             <TextView
                 android:id="@+id/textView4"
@@ -50,7 +61,10 @@
                 android:layout_height="wrap_content"
                 android:text="R$"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintBaseline_toBaselineOf="@+id/price"
+                app:layout_constraintEnd_toStartOf="@+id/price"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/price"
@@ -58,8 +72,58 @@
                 android:layout_height="wrap_content"
                 android:text="35,50"
                 android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView4"
+                app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/menos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="4dp"
+                android:gravity="center_horizontal"
+                android:text="-"
+                android:textColor="#EC407A"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/price"
+                app:layout_constraintEnd_toStartOf="@+id/quntidade"
+                app:layout_constraintStart_toEndOf="@+id/price"
+                app:layout_constraintTop_toTopOf="@+id/price" />
+
+            <TextView
+                android:id="@+id/quntidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="0"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toBottomOf="@+id/menos"
+                app:layout_constraintEnd_toStartOf="@+id/mais"
+                app:layout_constraintStart_toEndOf="@+id/menos"
+                app:layout_constraintTop_toTopOf="@+id/menos" />
+
+            <TextView
+                android:id="@+id/mais"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="16dp"
+                android:text="+"
+                android:textColor="#9CCC65"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/quntidade"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/quntidade"
+                app:layout_constraintTop_toTopOf="@+id/quntidade"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

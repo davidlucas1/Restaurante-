@@ -43,6 +43,8 @@ public class MisturaAdapter extends RecyclerView.Adapter<MisturaAdapter.Acompanh
         holder.image.setImageResource(mistura.getImage());
         holder.name.setText(mistura.getName());
         holder.price.setText(String.valueOf(mistura.getPrice()));
+        holder.description.setText(String.valueOf(mistura.getDescription()));
+
 
     }
 
@@ -52,7 +54,7 @@ public class MisturaAdapter extends RecyclerView.Adapter<MisturaAdapter.Acompanh
     }
 
     public class AcompanhamentoViewHolder extends RecyclerView.ViewHolder {
-        TextView name, price;
+        TextView name, price, description;
         ImageView image;
 
         public AcompanhamentoViewHolder(@NonNull View itemView) {
@@ -63,6 +65,8 @@ public class MisturaAdapter extends RecyclerView.Adapter<MisturaAdapter.Acompanh
                     .findViewById(R.id.price);
             image = itemView
                     .findViewById(R.id.image);
+            description = itemView
+                    .findViewById(R.id.description);
         }
     }
 }

@@ -2,13 +2,15 @@ package br.edu.ifma.pizzaria.Models;
 
 public class Bebidas {
     String name;
+    String description;
     Double price;
     int image;
 
-    public Bebidas(String name, Double price, int image) {
+    public Bebidas(String name, String description, Double price, int image) {
         this.name = name;
         this.price = price;
         this.image = image;
+        this.description = description;
     }
 
     public String getName() {
@@ -33,6 +35,14 @@ public class Bebidas {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
 
