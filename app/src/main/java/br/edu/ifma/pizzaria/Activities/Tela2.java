@@ -46,13 +46,13 @@ public class Tela2 extends AppCompatActivity {
         MisturaAdapter adapter = new MisturaAdapter(misturas);
         recyclerViewMisturaList.setAdapter(adapter);
 
-        Mistura mistura = new Mistura("Macaxeira Frita", "",7.00, R.drawable.macaxeira_frita);
+        Mistura mistura = new Mistura("Macaxeira Frita", "Serve 4 pessoas",7.00, R.drawable.macaxeira_frita);
         misturas.add(mistura);
 
-        mistura = new Mistura("Vatapá", "",9.00, R.drawable.vatapa);
+        mistura = new Mistura("Vatapá", "Serve 5 pessoas",9.00, R.drawable.vatapa);
         misturas.add(mistura);
 
-        mistura = new Mistura("Carangueijo", "",40.00, R.drawable.caranguejo);
+        mistura = new Mistura("Carangueijo", "Serve 3 pessoas",30.00, R.drawable.caranguejo);
         misturas.add(mistura);
     }
     private void setRecyclerViewBebidas() {
@@ -62,13 +62,13 @@ public class Tela2 extends AppCompatActivity {
         BebidasAdapter adapter = new BebidasAdapter(bebidas);
         recyclerViewBebidasList.setAdapter(adapter);
 
-        Bebidas drink = new Bebidas("Cachaça Dona Banana", "Cachaça artesanal adocicada",40.00, R.drawable.dona_banana);
+        Bebidas drink = new Bebidas("Cachaça Dona Banana", "980ml",20.00, R.drawable.dona_banana);
         bebidas.add(drink);
 
-        drink = new Bebidas("Guaraná Jesus", "",7.00, R.drawable.guarana_jesus);
+        drink = new Bebidas("Guaraná Jesus", "350ml",2.00, R.drawable.guarana_jesus);
         bebidas.add(drink);
 
-        drink = new Bebidas("Cajuina", "",10.00, R.drawable.cajuina);
+        drink = new Bebidas("Cajuina", "500ml",7.00, R.drawable.cajuina);
         bebidas.add(drink);
     }
 
@@ -79,13 +79,13 @@ public class Tela2 extends AppCompatActivity {
         PrincipalAdapter adapter = new PrincipalAdapter(pratosPrincipais);
         recyclerViewPpList.setAdapter(adapter);
 
-        PratoPrincipal prato = new PratoPrincipal("Carne de Sol", "",50.00, R.drawable.carne_de_sol);
+        PratoPrincipal prato = new PratoPrincipal("Carne de Sol", "Serve 2 pessoas",20.00, R.drawable.carne_de_sol);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("Moqueca", "",30.00, R.drawable.moqueca);
+        prato = new PratoPrincipal("Moqueca", "Serve 4 pessoas",30.00, R.drawable.moqueca);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("Baião", "",10.00, R.drawable.baiao);
+        prato = new PratoPrincipal("Baião", "Serve 8 pessoas",10.00, R.drawable.baiao);
         pratosPrincipais.add(prato);
     }
 
