@@ -1,6 +1,7 @@
 package br.edu.ifma.pizzaria.Adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,80 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.DrinksVi
         holder.price.setText(String.valueOf(drink.getPrice()));
         holder.description.setText(String.valueOf(drink.getDescription()));
 
+        holder.mais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Clic","esta funcionando " + drink.getName());
+                int temp;
+                switch (drink.getName()){
+                    case "Cachaça Dona Banana":
+                        temp = drink.getQuantidade();
+                        if (drink.getQuantidade()>=0){
+                            temp++;
+                            drink.setQuantidade(temp);
+                            holder.valor.setText(String.valueOf(temp));
+                            Log.i("quantidade", String.valueOf(temp));
+                        }
+                        break;
+                    case "Guaraná Jesus":
+                        temp = drink.getQuantidade();
+                        if (temp>=0){
+                            temp++;
+                            drink.setQuantidade(temp);
+                            holder.valor.setText(String.valueOf(temp));
+                            Log.i("quantidade", String.valueOf(temp));
+                        }
+                        break;
+                    case "Cajuina":
+                        temp = drink.getQuantidade();
+                        if (temp>=0){
+                            temp++;
+                            drink.setQuantidade(temp);
+                            holder.valor.setText(String.valueOf(temp));
+                            Log.i("quantidade", String.valueOf(temp));
+                        }
+                        break;
+                }
+            }
+        });
+
+        holder.menos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("Clic","esta funcionando " + drink.getName());
+                int temp;
+                switch (drink.getName()){
+                    case "Cachaça Dona Banana":
+                        temp = drink.getQuantidade();
+                        if (temp>0){
+                            temp--;
+                            drink.setQuantidade(temp);
+                            holder.valor.setText(String.valueOf(temp));
+                            Log.i("quantidade", String.valueOf(temp));
+                        }
+                        break;
+                    case "Guaraná Jesus":
+                        temp = drink.getQuantidade();
+                        if (temp>0){
+                            temp--;
+                            drink.setQuantidade(temp);
+                            holder.valor.setText(String.valueOf(temp));
+                            Log.i("quantidade", String.valueOf(temp));
+                        }
+                        break;
+                    case "Cajuina":
+                        temp = drink.getQuantidade();
+                        if (temp>0){
+                            temp--;
+                            drink.setQuantidade(temp);
+                            holder.valor.setText(String.valueOf(temp));
+                            Log.i("quantidade", String.valueOf(temp));
+                        }
+                        break;
+                }
+            }
+        });
+
     }
 
     @Override
@@ -56,7 +131,7 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.DrinksVi
 
     public class DrinksViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, price, description;
+        TextView name, price, description, mais, menos, valor;
         ImageView image;
 
         public DrinksViewHolder(@NonNull View itemView) {
@@ -69,6 +144,9 @@ public class BebidasAdapter extends RecyclerView.Adapter<BebidasAdapter.DrinksVi
                     .findViewById(R.id.image);
             description = itemView
                     .findViewById(R.id.description);
+            mais = itemView.findViewById(R.id.mais);
+            menos = itemView.findViewById(R.id.menos);
+            valor = itemView.findViewById(R.id.quantidade);
         }
     }
 

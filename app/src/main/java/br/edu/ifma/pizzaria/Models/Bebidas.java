@@ -5,6 +5,7 @@ public class Bebidas {
     String description;
     Double price;
     int image;
+    int quantidade;
 
     public Bebidas(String name, String description, Double price, int image) {
         this.name = name;
@@ -43,6 +44,14 @@ public class Bebidas {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }
 

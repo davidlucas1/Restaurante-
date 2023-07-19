@@ -5,6 +5,7 @@ public class Mistura {
     String description;
     Double price;
     int image;
+    int quantidade;
 
     public Mistura(String name, String description, Double price, int image) {
         this.name = name;
@@ -43,6 +44,14 @@ public class Mistura {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 }
 
