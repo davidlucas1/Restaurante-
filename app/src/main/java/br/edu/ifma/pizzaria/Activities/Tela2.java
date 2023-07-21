@@ -1,10 +1,14 @@
 package br.edu.ifma.pizzaria.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +24,7 @@ import br.edu.ifma.pizzaria.Models.PratoPrincipal;
 import br.edu.ifma.pizzaria.R;
 
 public class Tela2 extends AppCompatActivity {
+    FloatingActionButton btnteste;
     private List<Mistura> misturas = new ArrayList<>();
     private List<Bebidas> bebidas = new ArrayList<>();
     private List<PratoPrincipal> pratosPrincipais = new ArrayList<>();
@@ -36,6 +41,14 @@ public class Tela2 extends AppCompatActivity {
         recyclerViewPratoPrincipal();
         setRecyclerViewBebidas();
         setRecyclerViewMistura();
+        btnteste = findViewById(R.id.teste);
+        btnteste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(getApplicationContext(), Comanda.class);
+                startActivity(myIntent);
+            }
+        });
 
     }
 

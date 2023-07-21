@@ -2,4 +2,8 @@
     <string name="app_name">Pizzaria</string>
     <string name="add">add</string>
     <string name="pesquisa">Procure sua comida favorita aqui!</string>
+    <string name="num_mesa">Nº da Mesa: </string>
+    <string name="num_pessoa">Nº de Pessoas: </string>
+    <string name="mesa"> Digite aqui o número da mesa</string>
+    <string name="pessoa"> Digite aqui o número de pessoas a mesa</string>
 </resources>

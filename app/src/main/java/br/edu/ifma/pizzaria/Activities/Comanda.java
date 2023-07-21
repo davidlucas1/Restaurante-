@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import br.edu.ifma.pizzaria.R;
 
-public class Detail extends AppCompatActivity {
+public class Comanda extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail);
+        setContentView(R.layout.activity_comanda);
     }
 }
