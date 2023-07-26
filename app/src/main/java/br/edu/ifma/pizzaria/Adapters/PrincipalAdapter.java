@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -49,12 +48,12 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
         holder.mais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("Clic","esta funcionando " + prato.getName());
+                Log.i("Clic", "esta funcionando " + prato.getName());
                 int temp;
-                switch (prato.getName()){
+                switch (prato.getName()) {
                     case "Carne de Sol":
                         temp = prato.getQuantidade();
-                        if (prato.getQuantidade()>=0){
+                        if (prato.getQuantidade() >= 0) {
                             temp++;
                             prato.setQuantidade(temp);
                             holder.valor.setText(String.valueOf(temp));
@@ -63,7 +62,7 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
                         break;
                     case "Moqueca":
                         temp = prato.getQuantidade();
-                        if (temp>=0){
+                        if (temp >= 0) {
                             temp++;
                             prato.setQuantidade(temp);
                             holder.valor.setText(String.valueOf(temp));
@@ -72,7 +71,7 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
                         break;
                     case "Baião":
                         temp = prato.getQuantidade();
-                        if (temp>=0){
+                        if (temp >= 0) {
                             temp++;
                             prato.setQuantidade(temp);
                             holder.valor.setText(String.valueOf(temp));
@@ -86,12 +85,12 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
         holder.menos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("Clic","esta funcionando " + prato.getName());
+                Log.i("Clic", "esta funcionando " + prato.getName());
                 int temp;
-                switch (prato.getName()){
+                switch (prato.getName()) {
                     case "Carne de Sol":
                         temp = prato.getQuantidade();
-                        if (temp>0){
+                        if (temp > 0) {
                             temp--;
                             prato.setQuantidade(temp);
                             holder.valor.setText(String.valueOf(temp));
@@ -100,7 +99,7 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
                         break;
                     case "Moqueca":
                         temp = prato.getQuantidade();
-                        if (temp>0){
+                        if (temp > 0) {
                             temp--;
                             prato.setQuantidade(temp);
                             holder.valor.setText(String.valueOf(temp));
@@ -109,7 +108,7 @@ public class PrincipalAdapter extends RecyclerView.Adapter<PrincipalAdapter.Prat
                         break;
                     case "Baião":
                         temp = prato.getQuantidade();
-                        if (temp>0){
+                        if (temp > 0) {
                             temp--;
                             prato.setQuantidade(temp);
                             holder.valor.setText(String.valueOf(temp));

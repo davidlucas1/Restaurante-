@@ -3,6 +3,9 @@ package br.edu.ifma.pizzaria.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,12 +44,29 @@ public class Tela2 extends AppCompatActivity {
         recyclerViewPratoPrincipal();
         setRecyclerViewBebidas();
         setRecyclerViewMistura();
-        btnteste = findViewById(R.id.teste);
-        btnteste.setOnClickListener(new View.OnClickListener() {
+
+        Button button = findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(getApplicationContext(), Comanda.class);
-                startActivity(myIntent);
+                for (int i = 0; i < pratosPrincipais.size(); i++){
+                    if(pratosPrincipais.get(i).getQuantidade() > 0){
+                        Log.i("quantidade de pratos", "prato: " + pratosPrincipais.get(i).getName() + " quantidade: " + pratosPrincipais.get(i).getQuantidade());
+                    }
+                }
+
+                for (int i = 0; i < bebidas.size(); i++){
+                    if(bebidas.get(i).getQuantidade() > 0){
+                        Log.i("quantidade de pratos", "prato: " + bebidas.get(i).getName() + " quantidade: " + bebidas.get(i).getQuantidade());
+                    }
+                }
+
+                for (int i = 0; i < misturas.size(); i++){
+                    if(misturas.get(i).getQuantidade() > 0){
+                        Log.i("quantidade de pratos", "prato: " + misturas.get(i).getName() + " quantidade: " + misturas.get(i).getQuantidade());
+                    }
+                }
+
             }
         });
 
