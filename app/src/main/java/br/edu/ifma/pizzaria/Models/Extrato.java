@@ -1,14 +1,13 @@
 package br.edu.ifma.pizzaria.Models;
 
-public class Comanda {
+public class Extrato {
     private String nome;
     private int quantidade;
     private double total;
 
-    public Comanda(String nome, int quantidade, double total) {
+    public Extrato(String nome, int quantidade) {
         this.nome = nome;
         this.quantidade = quantidade;
-        this.total = total;
     }
 
     public String getNome() {

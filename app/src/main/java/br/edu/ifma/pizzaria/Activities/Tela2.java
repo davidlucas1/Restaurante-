@@ -2,7 +2,6 @@ package br.edu.ifma.pizzaria.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,12 +21,13 @@ import br.edu.ifma.pizzaria.Adapters.MisturaAdapter;
 import br.edu.ifma.pizzaria.Adapters.PrincipalAdapter;
 import br.edu.ifma.pizzaria.Models.Bebidas;
 import br.edu.ifma.pizzaria.Models.Categoria;
+import br.edu.ifma.pizzaria.Models.Extrato;
 import br.edu.ifma.pizzaria.Models.Mistura;
 import br.edu.ifma.pizzaria.Models.PratoPrincipal;
 import br.edu.ifma.pizzaria.R;
 
 public class Tela2 extends AppCompatActivity {
-    FloatingActionButton btnteste;
+    private Comanda comanda = new Comanda();
     private List<Mistura> misturas = new ArrayList<>();
     private List<Bebidas> bebidas = new ArrayList<>();
     private List<PratoPrincipal> pratosPrincipais = new ArrayList<>();
@@ -49,23 +49,32 @@ public class Tela2 extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < pratosPrincipais.size(); i++){
-                    if(pratosPrincipais.get(i).getQuantidade() > 0){
+                for (int i = 0; i < pratosPrincipais.size(); i++) {
+                    if (pratosPrincipais.get(i).getQuantidade() > 0) {
                         Log.i("quantidade de pratos", "prato: " + pratosPrincipais.get(i).getName() + " quantidade: " + pratosPrincipais.get(i).getQuantidade());
+                        Extrato extrato = new Extrato(pratosPrincipais.get(i).getName(), pratosPrincipais.get(i).getQuantidade());
+                        comanda.addToComanda(extrato);
                     }
                 }
 
-                for (int i = 0; i < bebidas.size(); i++){
-                    if(bebidas.get(i).getQuantidade() > 0){
+                for (int i = 0; i < bebidas.size(); i++) {
+                    if (bebidas.get(i).getQuantidade() > 0) {
                         Log.i("quantidade de pratos", "prato: " + bebidas.get(i).getName() + " quantidade: " + bebidas.get(i).getQuantidade());
+                        Extrato extrato = new Extrato(bebidas.get(i).getName(), bebidas.get(i).getQuantidade());
+                        comanda.addToComanda(extrato);
                     }
                 }
 
-                for (int i = 0; i < misturas.size(); i++){
-                    if(misturas.get(i).getQuantidade() > 0){
+                for (int i = 0; i < misturas.size(); i++) {
+                    if (misturas.get(i).getQuantidade() > 0) {
                         Log.i("quantidade de pratos", "prato: " + misturas.get(i).getName() + " quantidade: " + misturas.get(i).getQuantidade());
+                        Extrato extrato = new Extrato(misturas.get(i).getName(), misturas.get(i).getQuantidade());
+                        comanda.addToComanda(extrato);
                     }
                 }
+
+                Intent intent = new Intent(Tela2.this, Comanda.class);
+                startActivity(intent);
 
             }
         });
@@ -74,20 +83,21 @@ public class Tela2 extends AppCompatActivity {
 
     private void setRecyclerViewMistura() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
-        recyclerViewMisturaList= findViewById(R.id.recyclerMistura);
+        recyclerViewMisturaList = findViewById(R.id.recyclerMistura);
         recyclerViewMisturaList.setLayoutManager(linearLayoutManager);
         MisturaAdapter adapter = new MisturaAdapter(misturas);
         recyclerViewMisturaList.setAdapter(adapter);
 
-        Mistura mistura = new Mistura("Macaxeira Frita", "Serve 4 pessoas",7.00, R.drawable.macaxeira_frita);
+        Mistura mistura = new Mistura("Macaxeira Frita", "Serve 4 pessoas", 7.00, R.drawable.macaxeira_frita);
         misturas.add(mistura);
 
-        mistura = new Mistura("Vatapá", "Serve 5 pessoas",9.00, R.drawable.vatapa);
+        mistura = new Mistura("Vatapá", "Serve 5 pessoas", 9.00, R.drawable.vatapa);
         misturas.add(mistura);
 
-        mistura = new Mistura("Carangueijo", "Serve 3 pessoas",30.00, R.drawable.caranguejo);
+        mistura = new Mistura("Carangueijo", "Serve 3 pessoas", 30.00, R.drawable.caranguejo);
         misturas.add(mistura);
     }
+
     private void setRecyclerViewBebidas() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerViewBebidasList = findViewById(R.id.recyclerbabidas);
@@ -95,13 +105,13 @@ public class Tela2 extends AppCompatActivity {
         BebidasAdapter adapter = new BebidasAdapter(bebidas);
         recyclerViewBebidasList.setAdapter(adapter);
 
-        Bebidas drink = new Bebidas("Cachaça Dona Banana", "980ml",20.00, R.drawable.dona_banana);
+        Bebidas drink = new Bebidas("Cachaça Dona Banana", "980ml", 20.00, R.drawable.dona_banana);
         bebidas.add(drink);
 
-        drink = new Bebidas("Guaraná Jesus", "350ml",2.00, R.drawable.guarana_jesus);
+        drink = new Bebidas("Guaraná Jesus", "350ml", 2.00, R.drawable.guarana_jesus);
         bebidas.add(drink);
 
-        drink = new Bebidas("Cajuina", "500ml",7.00, R.drawable.cajuina);
+        drink = new Bebidas("Cajuina", "500ml", 7.00, R.drawable.cajuina);
         bebidas.add(drink);
     }
 
@@ -112,13 +122,13 @@ public class Tela2 extends AppCompatActivity {
         PrincipalAdapter adapter = new PrincipalAdapter(pratosPrincipais);
         recyclerViewPpList.setAdapter(adapter);
 
-        PratoPrincipal prato = new PratoPrincipal("Carne de Sol", "Serve 2 pessoas",20.00, R.drawable.carne_de_sol);
+        PratoPrincipal prato = new PratoPrincipal("Carne de Sol", "Serve 2 pessoas", 20.00, R.drawable.carne_de_sol);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("Moqueca", "Serve 4 pessoas",30.00, R.drawable.moqueca);
+        prato = new PratoPrincipal("Moqueca", "Serve 4 pessoas", 30.00, R.drawable.moqueca);
         pratosPrincipais.add(prato);
 
-        prato = new PratoPrincipal("Baião", "Serve 8 pessoas",10.00, R.drawable.baiao);
+        prato = new PratoPrincipal("Baião", "Serve 8 pessoas", 10.00, R.drawable.baiao);
         pratosPrincipais.add(prato);
     }
 
