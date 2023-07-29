@@ -2,6 +2,7 @@ package br.edu.ifma.pizzaria.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +29,7 @@ import br.edu.ifma.pizzaria.Models.PratoPrincipal;
 import br.edu.ifma.pizzaria.R;
 
 public class Tela2 extends AppCompatActivity {
-    private Comanda comanda = new Comanda();
+    private ArrayList<Extrato> extratoList = new ArrayList<>();
     private List<Mistura> misturas = new ArrayList<>();
     private List<Bebidas> bebidas = new ArrayList<>();
     private List<PratoPrincipal> pratosPrincipais = new ArrayList<>();
@@ -52,28 +54,32 @@ public class Tela2 extends AppCompatActivity {
                 for (int i = 0; i < pratosPrincipais.size(); i++) {
                     if (pratosPrincipais.get(i).getQuantidade() > 0) {
                         Log.i("quantidade de pratos", "prato: " + pratosPrincipais.get(i).getName() + " quantidade: " + pratosPrincipais.get(i).getQuantidade());
-                        Extrato extrato = new Extrato(pratosPrincipais.get(i).getName(), pratosPrincipais.get(i).getQuantidade());
-                        comanda.addToComanda(extrato);
+                        Extrato extrato = new Extrato(pratosPrincipais.get(i).getName(), pratosPrincipais.get(i).getQuantidade(), pratosPrincipais.get(i).getPrice() * pratosPrincipais.get(i).getQuantidade());
+                        extratoList.add(extrato);
                     }
                 }
 
                 for (int i = 0; i < bebidas.size(); i++) {
                     if (bebidas.get(i).getQuantidade() > 0) {
                         Log.i("quantidade de pratos", "prato: " + bebidas.get(i).getName() + " quantidade: " + bebidas.get(i).getQuantidade());
-                        Extrato extrato = new Extrato(bebidas.get(i).getName(), bebidas.get(i).getQuantidade());
-                        comanda.addToComanda(extrato);
+                        Extrato extrato = new Extrato(bebidas.get(i).getName(), bebidas.get(i).getQuantidade(), bebidas.get(i).getPrice() * bebidas.get(i).getQuantidade());
+                        extratoList.add(extrato);
                     }
                 }
 
                 for (int i = 0; i < misturas.size(); i++) {
                     if (misturas.get(i).getQuantidade() > 0) {
                         Log.i("quantidade de pratos", "prato: " + misturas.get(i).getName() + " quantidade: " + misturas.get(i).getQuantidade());
-                        Extrato extrato = new Extrato(misturas.get(i).getName(), misturas.get(i).getQuantidade());
-                        comanda.addToComanda(extrato);
+                        Extrato extrato = new Extrato(misturas.get(i).getName(), misturas.get(i).getQuantidade(), misturas.get(i).getPrice() * misturas.get(i).getQuantidade());
+                        extratoList.add(extrato);
                     }
                 }
 
                 Intent intent = new Intent(Tela2.this, Comanda.class);
+                intent.putExtra("pedidos", (extratoList));
+
+                Log.i("array", String.valueOf(extratoList.size()));
+
                 startActivity(intent);
 
             }

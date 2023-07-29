@@ -11,28 +11,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.ifma.pizzaria.Adapters.ComandaAdapter;
+import br.edu.ifma.pizzaria.Adapters.MisturaAdapter;
 import br.edu.ifma.pizzaria.Models.Extrato;
 import br.edu.ifma.pizzaria.R;
 
 public class Comanda extends AppCompatActivity {
-    private List<Extrato> comandaList = new ArrayList<>();
     private RecyclerView comandaRecycler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comanda);
 
-        comandaRecycler = findViewById(R.id.comandaRecycler);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        comandaRecycler.setLayoutManager(linearLayoutManager);
-        ComandaAdapter adapter = new ComandaAdapter(comandaList);
-        comandaRecycler.setAdapter(adapter);
-    }
+        ArrayList<Extrato> listaDeObjetos = (ArrayList<Extrato>) getIntent().getSerializableExtra("pedidos");
 
-    public void addToComanda(Extrato extrato) {
-        comandaList.add(extrato);
-        Log.i("comanda", "item adicionado: " + comandaList.get(0).getNome());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        comandaRecycler = findViewById(R.id.comandaRecycler);
+        comandaRecycler.setLayoutManager(linearLayoutManager);
+        ComandaAdapter adapter = new ComandaAdapter(listaDeObjetos);
+        comandaRecycler.setAdapter(adapter);
+
     }
 
 }

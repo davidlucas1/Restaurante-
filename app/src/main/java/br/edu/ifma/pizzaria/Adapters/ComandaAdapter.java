@@ -43,7 +43,7 @@ public class ComandaAdapter extends RecyclerView.Adapter<ComandaAdapter.ComandaV
     public void onBindViewHolder(@NonNull ComandaAdapter.ComandaViewHolder holder, int position) {
         Extrato extrato = extratoes.get(position);
         holder.name.setText(extrato.getNome());
-        holder.quantidade.setText(extrato.getQuantidade());
+        holder.quantidade.setText(String.valueOf(extrato.getQuantidade()));
         holder.price.setText(String.valueOf(extrato.getTotal()));
     }
 

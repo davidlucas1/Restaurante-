@@ -1,13 +1,16 @@
 package br.edu.ifma.pizzaria.Models;
 
-public class Extrato {
+import java.io.Serializable;
+
+public class Extrato implements Serializable {
     private String nome;
     private int quantidade;
     private double total;
 
-    public Extrato(String nome, int quantidade) {
+    public Extrato(String nome, int quantidade, Double total) {
         this.nome = nome;
         this.quantidade = quantidade;
+        this.total = total;
     }
 
     public String getNome() {
