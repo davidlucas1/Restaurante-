@@ -44,7 +44,7 @@ public class ComandaAdapter extends RecyclerView.Adapter<ComandaAdapter.ComandaV
         Extrato extrato = extratoes.get(position);
         holder.name.setText(extrato.getNome());
         holder.quantidade.setText(String.valueOf(extrato.getQuantidade()));
-        holder.price.setText(String.valueOf(extrato.getTotal()));
+        holder.price.setText("R$: " + String.valueOf(extrato.getTotal()));
     }
 
     @Override
