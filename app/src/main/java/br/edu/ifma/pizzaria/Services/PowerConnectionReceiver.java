@@ -23,11 +23,11 @@ public class PowerConnectionReceiver extends BroadcastReceiver{
             // Celular conectado ao carregador
             Toast.makeText(context, "Carregador conectado", Toast.LENGTH_SHORT).show();
 
-
+            creatNot(context);
         }
     }
 
-    private void checkNewPosts(Context context) {
+    private void creatNot(Context context) {
         Executor executor = new Invoker();
         executor.execute(() -> {
             // task to be performed

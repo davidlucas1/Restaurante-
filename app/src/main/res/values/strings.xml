@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pizzaria</string>
+    <string name="app_name">Java Restaurante</string>
     <string name="add">add</string>
     <string name="pesquisa">Procure sua comida favorita aqui!</string>
     <string name="num_mesa">Nº da Mesa: </string>
