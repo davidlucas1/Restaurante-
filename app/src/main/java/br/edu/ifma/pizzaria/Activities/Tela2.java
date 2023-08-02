@@ -1,13 +1,21 @@
 package br.edu.ifma.pizzaria.Activities;
 
+import static java.security.AccessController.getContext;
+
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +35,7 @@ import br.edu.ifma.pizzaria.Models.Extrato;
 import br.edu.ifma.pizzaria.Models.Mistura;
 import br.edu.ifma.pizzaria.Models.PratoPrincipal;
 import br.edu.ifma.pizzaria.R;
+import br.edu.ifma.pizzaria.Services.NotificationService;
 
 public class Tela2 extends AppCompatActivity {
     private ArrayList<Extrato> extratoList = new ArrayList<>();
@@ -84,6 +93,12 @@ public class Tela2 extends AppCompatActivity {
 
             }
         });
+
+        startService(new Intent(getBaseContext(), NotificationService.class));
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            askNotificationPermission();
+        }
 
     }
 
@@ -150,5 +165,26 @@ public class Tela2 extends AppCompatActivity {
         categoriasList.add(new Categoria("Lanches", "cat_5"));
         adapterCat = new CategoriaAdpter(categoriasList);
         recyclerViewCatList.setAdapter(adapterCat);
+    }
+
+    private final ActivityResultLauncher<String> requestPermissionLauncher =
+            registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+                if (isGranted) {
+                    // TODO
+                } else {
+                    // TODO: Inform user that that your app will not show notifications.
+                }
+            });
+
+    private void askNotificationPermission() {
+        if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.POST_NOTIFICATIONS) ==
+                PackageManager.PERMISSION_GRANTED) {
+            // FCM SDK (and your app) can post notifications.
+        } else if (shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
+
+        } else {
+            // Directly ask for the permission
+            requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+        }
     }
 }
