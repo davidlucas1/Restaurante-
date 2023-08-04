@@ -20,17 +20,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class NotificationService extends Service {
-        private PowerConnectionReceiver powerConnectionReceiver;
-        private WifiReceiver wifiReceiver;
-
         @Override
         public void onCreate() {
             super.onCreate();
             Log.i("Server","server init");
-            powerConnectionReceiver = new PowerConnectionReceiver();
-            wifiReceiver = new WifiReceiver();
-            registerReceiver(powerConnectionReceiver, new IntentFilter(Intent.ACTION_POWER_CONNECTED));
-            registerReceiver(wifiReceiver, new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION));
+
         }
 
         @Nullable

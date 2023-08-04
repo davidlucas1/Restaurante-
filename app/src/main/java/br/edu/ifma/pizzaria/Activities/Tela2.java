@@ -1,13 +1,12 @@
 package br.edu.ifma.pizzaria.Activities;
 
-import static java.security.AccessController.getContext;
-
 import android.Manifest;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,9 +18,6 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +31,8 @@ import br.edu.ifma.pizzaria.Models.Extrato;
 import br.edu.ifma.pizzaria.Models.Mistura;
 import br.edu.ifma.pizzaria.Models.PratoPrincipal;
 import br.edu.ifma.pizzaria.R;
-import br.edu.ifma.pizzaria.Services.NotificationService;
+import br.edu.ifma.pizzaria.Services.ChargerStatusReceiver;
+import br.edu.ifma.pizzaria.Services.InternetConnectionReceiver;
 
 public class Tela2 extends AppCompatActivity {
     private ArrayList<Extrato> extratoList = new ArrayList<>();
@@ -45,15 +42,19 @@ public class Tela2 extends AppCompatActivity {
     private RecyclerView.Adapter adapterCat, adapterPP, adapterMistura, adapterBebidas;
     private RecyclerView recyclerViewCatList, recyclerViewPpList, recyclerViewMisturaList, recyclerViewBebidasList;
 
+    private ChargerStatusReceiver chargerStatusReceiver;
+    private InternetConnectionReceiver internetConnectionReceiver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela2);
 
-        // Iniciar o Service
-        Intent serviceIntent = new Intent(this, NotificationService.class);
-        startService(serviceIntent);
+        chargerStatusReceiver = new ChargerStatusReceiver();
+        internetConnectionReceiver = new InternetConnectionReceiver();
+        registerReceiver(chargerStatusReceiver, new IntentFilter(Intent.ACTION_POWER_CONNECTED));
+        registerReceiver(internetConnectionReceiver, new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             askNotificationPermission();
