@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -32,8 +31,8 @@ import br.edu.ifma.pizzaria.Models.Extrato;
 import br.edu.ifma.pizzaria.Models.Mistura;
 import br.edu.ifma.pizzaria.Models.PratoPrincipal;
 import br.edu.ifma.pizzaria.R;
-import br.edu.ifma.pizzaria.Services.ChargerStatusReceiver;
-import br.edu.ifma.pizzaria.Services.InternetConnectionReceiver;
+import br.edu.ifma.pizzaria.Services.PowerConnectionReceiver;
+import br.edu.ifma.pizzaria.Services.WifiReceiver;
 
 public class Tela2 extends AppCompatActivity {
     private ArrayList<Extrato> extratoList = new ArrayList<>();
@@ -42,9 +41,8 @@ public class Tela2 extends AppCompatActivity {
     private List<PratoPrincipal> pratosPrincipais = new ArrayList<>();
     private RecyclerView.Adapter adapterCat, adapterPP, adapterMistura, adapterBebidas;
     private RecyclerView recyclerViewCatList, recyclerViewPpList, recyclerViewMisturaList, recyclerViewBebidasList;
-
-    private ChargerStatusReceiver chargerStatusReceiver;
-    private InternetConnectionReceiver internetConnectionReceiver;
+    private PowerConnectionReceiver powerConnectionReceiver;
+    private WifiReceiver wifiReceiver;
 
 
     @Override
@@ -52,10 +50,10 @@ public class Tela2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela2);
 
-        chargerStatusReceiver = new ChargerStatusReceiver();
-        internetConnectionReceiver = new InternetConnectionReceiver();
-        registerReceiver(chargerStatusReceiver, new IntentFilter(Intent.ACTION_POWER_CONNECTED));
-        registerReceiver(internetConnectionReceiver, new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION));
+        powerConnectionReceiver = new PowerConnectionReceiver();
+        registerReceiver(powerConnectionReceiver, new IntentFilter(Intent.ACTION_POWER_CONNECTED));
+        wifiReceiver = new WifiReceiver();
+        registerReceiver(wifiReceiver, new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             askNotificationPermission();
