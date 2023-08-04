@@ -1,6 +1,5 @@
 package br.edu.ifma.pizzaria.Services;
 
-import static android.content.Context.MODE_PRIVATE;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -8,7 +7,6 @@ import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import java.util.concurrent.Executor;

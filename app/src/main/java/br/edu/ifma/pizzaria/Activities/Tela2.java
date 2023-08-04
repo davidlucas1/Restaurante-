@@ -51,6 +51,14 @@ public class Tela2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela2);
 
+        // Iniciar o Service
+        Intent serviceIntent = new Intent(this, NotificationService.class);
+        startService(serviceIntent);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            askNotificationPermission();
+        }
+
         recyclerViewCategorias();
         recyclerViewPratoPrincipal();
         setRecyclerViewBebidas();
@@ -93,12 +101,6 @@ public class Tela2 extends AppCompatActivity {
 
             }
         });
-
-        startService(new Intent(getBaseContext(), NotificationService.class));
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            askNotificationPermission();
-        }
 
     }
 
