@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 import android.widget.Toast;
 
 public class InternetConnectionReceiver extends BroadcastReceiver {
@@ -17,9 +18,11 @@ public class InternetConnectionReceiver extends BroadcastReceiver {
 
             if (networkInfo != null && networkInfo.isConnected()) {
                 Toast.makeText(context, "Internet conectada", Toast.LENGTH_SHORT).show();
+                Log.i("Intent","conectada");
                 // Aqui você pode adicionar sua lógica adicional para quando a internet estiver conectada.
             } else {
                 Toast.makeText(context, "Sem conexão com a internet", Toast.LENGTH_SHORT).show();
+                Log.i("Intent","não conectada");
                 // Aqui você pode adicionar sua lógica adicional para quando a internet estiver desconectada.
             }
         }
