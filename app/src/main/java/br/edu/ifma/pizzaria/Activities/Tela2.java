@@ -98,6 +98,7 @@ public class Tela2 extends AppCompatActivity {
                 Log.i("array", String.valueOf(extratoList.size()));
 
                 startActivity(intent);
+                finish();
 
             }
         });

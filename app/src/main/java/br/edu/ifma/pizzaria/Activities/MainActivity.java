@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
            public void onClick(View v) {
                Intent myIntent = new Intent(getApplicationContext(), Tela2.class);
                startActivity(myIntent);
+               finish();
            }
        });
 
